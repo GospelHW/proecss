@@ -1,0 +1,66 @@
+<div class="app-content">
+  <fieldset>
+    <legend>项目情况</legend>
+    <div class="project-info">
+      截止目前，上线项目{{((projectInfo?.usecount-0)+(projectInfo?.notusercount-0) || 0)}}个，完工项目{{(projectInfo?.stopcount ||
+      0)}}个，
+      近一个月活跃（有数）项目{{(projectInfo?.activeproject || 0)}}个
+    </div>
+    <div #organizationChart class="organization-chart">
+    </div>
+  </fieldset>
+
+  <fieldset style="margin-top:1.5rem;">
+    <legend>工程分布情况</legend>
+    <div #pieChart class="demo-chart"></div>
+    <div class="project-info">在施分项工程共{{totalInProject}}个，其中在{{maxRateInProject}}占比较高</div>
+  </fieldset>
+
+  <fieldset style="margin-top:1.5rem;">
+    <legend>一次性通过率</legend>
+    <div class="once-pass-rate">
+      <div class="all-process">
+        <div #oncePassChart class="project-chart"></div>
+        <div class="project-info">
+          <span>已完成{{projectPassInfo.finish_count || 0}}个工序检验
+            <br/>
+            其中未一次通过{{(projectPassInfo.finish_count-projectPassInfo.onepass_count) || 0}}个</span>
+        </div>
+      </div>
+
+      <div class="hide-state">
+        <div>
+          <p>非隐蔽工程</p>
+          <span class="rate" [ngClass]="{'stateColorRed':(projectPassInfo?.nrate-0)<90,
+          'stateColorGreen':(projectPassInfo?.nrate-0)>95,
+          'stateColorOrange':(projectPassInfo?.nrate-0)<95&&(projectPassInfo?.nrate-0)>90}">
+            {{projectPassInfo?.nrate}}%
+          </span>
+        </div>
+        <div>
+          <p>隐蔽工程</p>
+          <span class="rate" [ngClass]="{'stateColorRed':(projectPassInfo?.crate-0)<90,
+          'stateColorGreen':(projectPassInfo?.crate-0)>95,
+          'stateColorOrange':(projectPassInfo?.crate-0)<95&&(projectPassInfo?.crate-0)>90}">
+            {{projectPassInfo?.crate}}%
+          </span>
+        </div>
+      </div>
+    </div>
+  </fieldset>
+
+  <fieldset style="margin-top:1.5rem;">
+    <legend>未一次通过工序</legend>
+    <div #noOnceChart class="demo-chart"></div>
+  </fieldset>
+</div>
+
+<div class="js_dialog" id="hintDialog" style="display: none;">
+  <div class="weui-mask"></div>
+  <div class="weui-dialog weui-skin_android">
+    <div class="weui-loadmore">
+      <i class="weui-loading"></i>
+      <span class="weui-loadmore__tips">正在加载</span>
+    </div>
+  </div>
+</div>

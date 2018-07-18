@@ -1,0 +1,34 @@
+.process-about {
+  margin-top: 15%;
+
+  div{
+    text-align: center;
+
+    img{
+      max-width: 26%;
+    }
+
+    .name{
+      font-size: 2.1rem;
+      color: #303030;
+      margin: 0.2rem 0;
+    }
+
+    .version {
+      border: 1px solid #c5c4c0;
+      width: 28%;
+      border-radius: 14px;
+      font-size: 1.6rem;
+      color: #a1a1a1;
+      margin: 0.8rem auto;
+    }
+  }
+
+  .description {
+    text-indent: 2em;
+    color: #363636;
+    font-size: 1.4rem;
+    line-height: 2rem;
+    margin-top: 5rem;
+  }
+}

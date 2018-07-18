@@ -1,0 +1,68 @@
+<div class="app-content">
+  <div *ngIf="viewTotalItems">
+    <div class="weui-search-bar" id="searchBar">
+      <div class="weui-search-bar__form">
+        <div class="weui-search-bar__box">
+          <i class="weui-icon-search"></i>
+          <input type="search" class="weui-search-bar__input" [(ngModel)]="searchInput" placeholder="输入项目名称搜索"
+                 (keyup)="getItems()"/>
+          <a href="javascript:;" class="weui-icon-clear" id="searchClear" (click)="clearInput()"></a>
+        </div>
+      </div>
+      <a href="javascript:" class="weui-search-bar__cancel-btn" id="searchCancel">取消</a>
+    </div>
+  </div>
+  <app-scroll
+    [Percentage]="20"
+    [IsNextPageFinish]="isNextPageFinish"
+    [IsRefreshFinish]="isRefreshFinish"
+    (onRefresh)="onScrollRefresh()"
+    (onNextPage)="doInfinite()" >
+    <div>
+      <div *ngFor="let pinfo of viewTotalItems" class="project" (click)="goToProcess(pinfo)">
+        <div class="content">
+          <div class="avatar">
+            {{pinfo?.project_name | name2avatar}}
+          </div>
+
+          <div class="info">
+            <h2 class="name">
+              {{pinfo.project_name}}
+            </h2>
+            <p class="org-name">{{pinfo.orginfo}}</p>
+            <p class="last-time">{{pinfo.last_time}}</p>
+            <div class="completion">
+              <div class="my-div-small">
+                <span>已完成工序</span>
+                <p>{{pinfo?.finishprocess_count}}</p>
+              </div>
+              <div class="my-div">
+                <span>已完成工序比率</span>
+                <p>{{pinfo?.finish_item_scale+'%'}}</p>
+
+              </div>
+              <div class="my-div">
+                <span>工序一次通过率</span>
+                <p>{{pinfo?.item_one_pass_scale+'%'}}</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="segmentation"></div>
+      </div>
+    </div>
+  </app-scroll>
+  <div *ngIf="viewTotalItems.length <= 0" class="no-project">
+    暂无项目
+  </div>
+</div>
+<div class="js_dialog" id="hintDialog" style="display: none;">
+  <div class="weui-mask"></div>
+  <div class="weui-dialog weui-skin_android">
+    <div class="weui-loadmore">
+      <i class="weui-loading"></i>
+      <span class="weui-loadmore__tips">正在加载</span>
+    </div>
+  </div>
+</div>

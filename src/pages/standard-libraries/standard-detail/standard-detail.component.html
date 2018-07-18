@@ -1,0 +1,49 @@
+<div class="standard">
+  <div *ngIf="processInfo" class="process-info">
+    公路工程 > {{processInfo.unit}} > {{processInfo.division}} > {{processInfo.item}}
+  </div>
+
+  <div class="segmentation"></div>
+
+  <div class="work-point">
+    <p class="title">作业要点</p>
+    <div [innerHTML]="sanitizer.bypassSecurityTrustHtml(standardDetail?.workPoint)" class="info"></div>
+  </div>
+
+  <div class="segmentation"></div>
+
+  <div class="check-item" *ngIf="standardDetail?.checkItems">
+    <p class="title">检查项</p>
+    <div class="info" *ngFor="let data of standardDetail.checkItems; let i= index">
+      <div class="flag">{{(i+1) | numFormat}}</div>
+      <div class="content">
+        <div class="description">
+          <p class="item-name">{{data.item_name}}</p>
+          <p class="basics">{{data.basis}}</p>
+          <p class="measure">{{data.measure_method_freq}}</p>
+        </div>
+        <div class="description">
+          <p style="font-size: 1.4rem">优良</p>
+          <p style="font-size: 1rem">{{data.threshold_hg}}</p>
+        </div>
+        <div class="description">
+          <p style="font-size: 1.4rem">合格</p>
+          <p style="font-size: 1rem">尺量：按骨架总数30%的抽查</p>
+        </div>
+        <div class="description">
+          <p style="font-size: 1.4rem">权值</p>
+          <p style="font-size: 1rem">{{data.sort_no}}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="js_dialog" id="hintDialog" style="display: none;">
+  <div class="weui-mask"></div>
+  <div class="weui-dialog weui-skin_android">
+    <div class="weui-loadmore">
+      <i class="weui-loading"></i>
+      <span class="weui-loadmore__tips">正在加载</span>
+    </div>
+  </div>
+</div>

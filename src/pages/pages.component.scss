@@ -1,0 +1,17 @@
+.pages{
+  height: 100vh;
+
+  .content{
+    //padding-bottom: 80px; // 查看原图时，有滚动轮
+  }
+  .app-page{
+    position: fixed;
+    width:100%;
+    bottom: 0;
+    .weui-tabbar__item.weui-bar__item_on .weui-tabbar__icon,
+    .weui-tabbar__item.weui-bar__item_on .weui-tabbar__icon > i,
+    .weui-tabbar__item.weui-bar__item_on .weui-tabbar__label{
+      color: #4d7bff;
+    }
+  }
+}

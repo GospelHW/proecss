@@ -1,0 +1,11 @@
+<!--[ngStyle]="{'height': isViewOrigin === true ? 'calc(100vh - 50px)' : '0px', 'opacity': isViewOrigin === true ? 1:0}"-->
+<div class="swiper-container">
+  <div class="swiper-wrapper">
+    <div class="swiper-slide">
+      <img  [defaultImage]="defaultImage"
+            [lazyLoad]="photoId" alt="" width="100%">
+    </div>
+  </div>
+  <!-- 如果需要分页器 -->
+  <div class="swiper-pagination"></div>
+</div>

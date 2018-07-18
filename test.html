@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+  <style>
+    #icons {
+      border: 1px solid bisque;
+      height: 250px;
+      position: relative;
+    }
+
+    #icons .column {
+    / / 每一列 width: 25 %;
+      display: inline-block;
+      float: left;
+      text-align: center;
+    }
+
+    #icons .column .txt {
+    / / 每列文字 width: 100 %;
+      height: 52px;
+      margin-top: 134px;
+      border-right: 2px solid #787b83;
+    / / 在此处加隔条
+
+    }
+
+    #icons .column:last-child .txt{
+      border-right: none;
+    }
+
+    #icons .column .txt p {
+      width: 160px;
+      height: 52px;
+      font-size: 14px;
+      line-height: 18px;
+      color: #767777;
+      margin-left: 25%;
+    }
+  </style>
+</head>
+<body>
+<div id="icons">
+  <div>
+    <div class="column column1">
+      <div class="txt">
+        <p>打造全新世界观，让你更爱你的生活</p>
+      </div>
+    </div>
+  </div>
+</div>
+</body>
+</html>

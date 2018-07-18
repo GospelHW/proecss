@@ -1,0 +1,89 @@
+.app-content {
+  padding: 0px;
+  .weui-search-bar {
+    background: #FFFFFF;
+    height: 60px;
+  }
+  .weui-search-bar:before,
+  .weui-search-bar:after {
+    border: 0px;
+  }
+  .weui-search-bar__box .weui-icon-clear,
+  .weui-search-bar__box .weui-icon-search{
+    line-height: 48px;
+  }
+  .weui-search-bar__box .weui-search-bar__input{
+    padding: 13px 0;
+    font-size: 16px;
+  }
+  .project {
+    .content {
+      display: flex;
+      align-items: center;
+      .avatar {
+        text-align: center;
+        min-height: 40px;
+        min-width: 40px;
+        line-height: 40px;
+        background: dodgerblue;
+        border-radius: 50%;
+        font-size: 12px;
+        color: white;
+        padding: 0px;
+        margin: 0 10px;
+        font-weight: bold;
+      }
+      .info {
+        padding-right: 10px;
+        flex: 1;
+        .name {
+          font-size: 16px;
+          color: #333333;
+        }
+        .org-name {
+          font-size: 14px;
+          color: #999999;
+        }
+        .name, .org-name {
+          width: calc(100vw - 100px);
+          overflow: hidden;
+          white-space: nowrap;
+          text-overflow: ellipsis;
+        }
+        .last-time {
+          font-size: 14px;
+          color: #999999;
+        }
+        .completion {
+          display: flex;
+          justify-content: space-between;
+          span {
+            font-size: 12px;
+            color: #999999;
+          }
+          p {
+            text-align: center;
+            font-size: 15px;
+            color: #ff9201;
+          }
+        }
+      }
+    }
+    .segmentation {
+      background: #4EC1F6;
+      height: 1px;
+      width: 100%;
+    }
+  }
+  .project:last-child{
+    .segmentation{
+      height: 0px;
+    }
+  }
+
+  .no-project {
+    text-align: center;
+    font-size: 18px;
+    color: #8e8e8e;
+  }
+}

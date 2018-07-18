@@ -1,0 +1,111 @@
+<div class="app-content">
+  <div class="slide-images">
+    <div class="swiper-container">
+      <div class="swiper-wrapper">
+        <div class="swiper-slide" lazy-load-images>
+          <img
+            [lazyLoad]="getImgPath(processInfo)"
+            [defaultImage]="defaultImage"
+            alt="" width="100%">
+        </div>
+      </div>
+      <!-- 如果需要分页器 -->
+      <div class="swiper-pagination"></div>
+
+      <!-- 如果需要导航按钮 -->
+      <!--<div class="swiper-button-prev"></div>-->
+      <!--<div class="swiper-button-next"></div>-->
+    </div>
+  </div>
+
+  <div class="process-info" *ngIf="checkDetailInfo">
+    <div class="process-info-header">
+      <span>{{orgName}}</span>
+      <span>{{checkDetailInfo?.project_name}}·</span>
+      <span class="process-name">{{checkDetailInfo?.process_name}}</span>
+    </div>
+
+    <div class="process-info-body">
+      <div class="process-info-item">
+        <div class="tag">
+          单位工程
+        </div>
+        <div class="tag-info">
+          <p>{{checkDetailInfo?.unit_name}}
+            <span *ngIf="checkDetailInfo?.subunit_name">&nbsp;- &nbsp;{{checkDetailInfo?.subunit_name}}</span>
+          </p>
+          <!--<p class="tag-info-sub" *ngIf="checkDetailInfo?.subunit_name">-{{checkDetailInfo?.subunit_name}}</p>-->
+        </div>
+      </div>
+      <div class="process-info-item">
+        <div class="tag">
+          分部工程
+        </div>
+        <div class="tag-info">
+          <p>{{checkDetailInfo?.division_name}}
+            <span *ngIf="checkDetailInfo?.subdivision_name">&nbsp;- &nbsp;{{checkDetailInfo?.subdivision_name}}</span>
+          </p>
+          <!--<p class="tag-info-sub" *ngIf="checkDetailInfo?.subdivision_name">-{{checkDetailInfo?.subdivision_name}}</p>-->
+        </div>
+      </div>
+      <div class="process-info-item">
+        <div class="tag">
+          分项工程
+        </div>
+        <div class="tag-info">
+          <p>{{checkDetailInfo?.item_name}}
+            <span *ngIf="checkDetailInfo?.subitem_name">&nbsp;- &nbsp;{{checkDetailInfo?.subitem_name}}</span>
+          </p>
+          <!--<p class="tag-info-sub" *ngIf="checkDetailInfo?.subitem_name">-{{checkDetailInfo?.subitem_name}}</p>-->
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="progress-flow">
+    <div class="progress-flow-header">
+      <span>工序检验进度流程图</span>
+    </div>
+    <div class="timeline">
+      <div class="timeline-item" *ngFor="let process of processFlowInfo">
+        <div class="timeline-date">{{process?.data?.time}}</div>
+        <div class="timeline-point hide-border" [ngClass]="{'complete-status': process?.data?.time != ''}"></div>
+        <div class="timeline-event">
+          <div class="timeline-header">{{process?.type}}</div>
+          <div class="timeline-body">
+            <div>
+              {{process?.data?.director}}
+            </div>
+            <div>
+              {{process?.data?.advice}}
+            </div>
+            <div>
+              {{process?.data?.result}}
+            </div>
+            <div *ngIf="process?.type==='审核'">
+              <img [src]="getImgPath(checkDetailInfo?.autographPath)" alt="" style="height: 100px; width: 100px;" >
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="timeline-item" *ngIf="processFlowInfo">
+        <div class="timeline-date"></div>
+        <div class="timeline-point hide-border"
+             [ngClass]="{'complete-status': processFlowInfo[processFlowInfo.length-1]?.data?.time != ''}"></div>
+        <div class="timeline-event">
+          <div class="timeline-header">完成</div>
+          <div class="timeline-body"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="js_dialog" id="hintDialog" style="display: none;">
+  <div class="weui-mask"></div>
+  <div class="weui-dialog weui-skin_android">
+    <div class="weui-loadmore">
+      <i class="weui-loading"></i>
+      <span class="weui-loadmore__tips">正在加载</span>
+    </div>
+  </div>
+</div>

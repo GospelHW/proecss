@@ -1,0 +1,127 @@
+.app-content{
+  padding: 0px;
+  .slide-images {
+    .swiper-container{
+      height: 180px;
+    }
+  }
+
+  .process-info {
+    .process-info-header {
+      padding: 10px 0px;
+      background: #eeeeee;
+      .process-name {
+        font-size: 1.2rem;
+        font-weight: bold;
+        color: #4f86f2;
+      }
+    }
+    .process-info-body {
+      padding: 0 1rem;
+      .tag {
+        color: #333333;
+        font-size: 1.3rem;
+      }
+      .tag-info {
+        padding-left: 1rem;
+        color: #666666;
+        //p:last-child{
+        //  margin:0.1rem;
+        //  font-size: 1.4rem;
+        //  text-indent: 1em;
+        //}
+        p:first-child{
+          text-indent: 0em;
+          font-size: 1.2rem;
+          margin:0.1rem;
+        }
+      }
+    }
+  }
+
+  .progress-flow {
+    .progress-flow-header {
+      padding-left: 2px;
+      background: #eeeeee;
+      line-height: 3rem;
+    }
+
+    .timeline {
+      position: relative;
+      overflow: hidden;
+      //height: 100%;
+    }
+
+    .timeline::after {
+      position: absolute;
+      width: 2px;
+      height: 100%;
+      top: 0;
+      left: 5%;
+      margin-left: -1px;
+      background-color: #30d05f;
+      content: " ";
+    }
+
+    .timeline-item {
+      position: relative;
+      margin: 0.2rem 0;
+      padding-top: 30px;
+
+      .timeline-date {
+        position: absolute;
+        top: 10px;
+        left: 11%;
+        width: 100%;
+        color:#999999;
+      }
+
+      .timeline-point {
+        box-sizing: border-box;
+        position: absolute;
+        left: 5.5%;
+        top: 10px;
+        margin-left: -15px;
+        border: 1px solid #cccccc;
+        border-radius: 100%;
+        text-align: center;
+        background-color: #fff;
+        z-index: 99;
+        font-size: 30px;
+        height: 25px;
+        line-height: 25px;
+        width: 25px;
+      }
+
+      .complete-status{
+        border: 1px solid #30d05f;
+        background-color: #30d05f;
+      }
+
+      .timeline-event {
+        box-sizing: border-box;
+        position: relative;
+        left: 7%;
+        width: 93%;
+        padding: 0.2rem 1rem;
+        //border: 1px solid #ccc;
+        background-color: #fff;
+        border-radius: 5px;
+        display: flex;
+        justify-content: flex-start;
+      }
+      .timeline-header {
+        font-size: 1.4rem;
+        font-weight: 500;
+        color:#f99c16;
+        min-width: 52px;
+      }
+      .timeline-body {
+        font-size: 1.2rem;
+        color: #333333;
+        margin-left: 10%;
+      }
+    }
+  }
+
+}

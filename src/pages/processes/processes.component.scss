@@ -1,0 +1,68 @@
+.app-content {
+  padding-bottom: 80px;
+  .box {
+    display: inline-block;
+    width: 20%;
+    padding: 0 2%;
+    .album {
+      position: relative;
+      img {
+        width: 100%;
+        height: 100%;
+      }
+      .name {
+        font-size: 12px;
+        overflow: hidden;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+      }
+
+    }
+  }
+}
+
+.origin-photo {
+  background-color: #000000;
+  .swiper-slide {
+    display: flex;
+  }
+}
+.subscript_wyc {
+  color: #fff;
+  height: 20px !important;;
+  width: 20px !important;;
+  position: absolute;
+  right: 0px;
+  top: 0px;
+  left: 20px;
+  text-align: center;
+  line-height: 20px;
+  font-family: "黑体";
+  background-color: darkorange;
+  opacity: 0.9;
+  -moz-transform: rotate(0deg);
+  -webkit-transform: rotate(0deg);
+  -o-transform: rotate(0deg);
+  -ms-transform: rotate(0deg);
+  transform: rotate(0deg);
+  border-radius: 50%;
+}
+.subscript_yb {
+  color: #fff;
+  height: 20px !important;
+  width: 20px !important;
+  position: absolute;
+  left: 0px;
+  top: 0px;
+  text-align: center;
+  line-height: 20px;
+  font-family: "黑体";
+  background-color: darkred;
+  opacity: 0.8;
+  -moz-transform: rotate(0deg);
+  -webkit-transform: rotate(0deg);
+  -o-transform: rotate(0deg);
+  -ms-transform: rotate(0deg);
+  transform: rotate(0deg);
+  border-radius: 50%;
+}

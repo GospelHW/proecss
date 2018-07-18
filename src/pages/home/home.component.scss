@@ -1,0 +1,60 @@
+.app-content{
+  padding-bottom: 80px;
+}
+.organization-chart {
+  height: 200px;
+}
+
+.once-pass-rate {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  .project-chart {
+    height: 150px;
+    width: 150px;
+  }
+
+  .all-process {
+    padding-right: 20px;
+  }
+  .hide-state {
+    border-left: 1px solid #efefef;
+    padding-left: 20px;
+    .rate {
+      font-weight: bold;
+      font-size: 22px;
+    }
+  }
+}
+
+.demo-chart {
+  height: 280px;
+}
+
+fieldset {
+  border: 1px solid #efefef;
+  legend {
+    font-size: 1.2rem;
+    color: #333;
+  }
+}
+
+.stateColorRed {
+  color: #d03a02;;
+}
+
+.stateColorGreen {
+  color: #359b31;
+}
+
+.stateColorOrange {
+  color: #fbd200;
+}
+
+.project-info {
+  background: rgba(224, 224, 224, 0.35);
+  line-height: 1rem;
+  font-size: 1rem;
+  padding: 1rem 0.3rem 1rem 0.3rem;
+  color: #666666;
+}

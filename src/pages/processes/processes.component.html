@@ -1,0 +1,73 @@
+<div class="app-content" *ngIf="!isViewOrigin">
+  <!--<div [ngStyle]="{'height': isViewOrigin === false ? 'auto' : '0px', 'opacity': isViewOrigin === false ? 1:0}">-->
+  <div >
+    <div style="padding:0px!important; font-size: 18px">
+      <span>{{orgName}}</span>
+    </div>
+    <div>
+      <app-scroll
+        [Percentage]="20"
+        [IsNextPageFinish]="isNextPageFinish"
+        [IsRefreshFinish]="isRefreshFinish"
+        (onRefresh)="onScrollRefresh()"
+        (onNextPage)="doInfinite()" >
+        <div *ngFor="let item of viewImgData">
+          <div *ngIf="item[getKeys(item)].length > 0">
+            <span margin-left="2px" style="-webkit-user-select: auto;font-size:1.4rem;">
+          {{getKeys(item).substr(0,4)+'年'}}{{getKeys(item).substr(5,2)+'月'}}{{getKeys(item).substr(-2, 2)+'日'}}
+            </span>
+            <div id="p_container">
+              <div class="box" *ngFor="let pinfo of item[getKeys(item)];let i = index;"
+                   (click)="reviewOrigin(pinfo)">
+                <div class="album">
+                  <img [id]="i"
+                       [lazyLoad]="getImgPath(pinfo)"
+                       [defaultImage]="defaultImage"
+                       onerror="this.src='./assets/imgs/default_img.png'"
+                  >
+                  <div class="name">{{pinfo.name}}</div>
+                  <div class="subscript_wyc" *ngIf="pinfo.isonepass != 1">未</div>
+                  <div class="subscript_yb" *ngIf="pinfo.isconceal != 0">隐</div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+        <!--<div *ngIf="viewImgData.length === 0" class="no-data">-->
+        <!--<div *ngIf="backAllBtn">-->
+        <!--{{selectdtime.substr(0,4)+'年'}}{{selectdtime.substr(5,2)+'月'}}{{selectdtime.substr(-2, 2)+'日'}}-->
+        <!--</div>-->
+        <!--<p>暂无数据</p>-->
+        <!--</div>-->
+      </app-scroll>
+    </div>
+  </div>
+
+</div>
+
+<div class="origin-photo">
+  <div class="swiper-container"
+       [ngStyle]="{'height': isViewOrigin === true ? 'calc(100vh - 50px)' : '0px', 'opacity': isViewOrigin === true ? 1:0}">
+    <div class="swiper-wrapper">
+      <div class="swiper-slide" >
+        <img [lazyLoad]="photoId"
+             [defaultImage]="defaultImage"
+             alt="" width="100%" (click)="goToCheckDetail()">
+        <div class="subscript_wyc" *ngIf="processInfo?.isonepass != 1">未</div>
+        <div class="subscript_yb" *ngIf="processInfo?.isconceal != 0">隐</div>
+      </div>
+    </div>
+    <!-- 如果需要分页器 -->
+    <div class="swiper-pagination"></div>
+  </div>
+</div>
+<div class="js_dialog" id="hintDialog" style="display: none;">
+  <div class="weui-mask"></div>
+  <div class="weui-dialog weui-skin_android">
+    <div class="weui-loadmore">
+      <i class="weui-loading"></i>
+      <span class="weui-loadmore__tips">正在加载</span>
+    </div>
+  </div>
+</div>

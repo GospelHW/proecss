@@ -1,0 +1,52 @@
+<div class="app-content">
+  <div class="weui-search-bar" id="searchBar">
+    <div class="weui-search-bar__form">
+      <div class="weui-search-bar__box">
+        <i class="weui-icon-search"></i>
+        <input type="search" class="weui-search-bar__input" [(ngModel)]="searchInput" placeholder="输入项目名称搜索"
+               (keyup)="getItems()"/>
+        <a href="javascript:;" class="weui-icon-clear" id="searchClear" (click)="clearInput()"></a>
+      </div>
+    </div>
+    <a href="javascript:" class="weui-search-bar__cancel-btn" id="searchCancel">取消</a>
+  </div>
+  <div class="category">
+    <div class="project" *ngFor="let data of highwayCloneInfo" [ngClass]="{'selected': data.selected === true}"
+         (click)="selectedProject(data)">
+      {{data?.unitProject}}
+    </div>
+  </div>
+
+  <!--<div class="swiper-container swiper-system">-->
+    <!--<div class="swiper-wrapper">-->
+      <!--<div class="swiper-slide" *ngFor="let data of highwayCloneInfo">-->
+        <!--{{data?.unitProject}}-->
+      <!--</div>-->
+    <!--</div>-->
+     <!--如果需要分页器 -->
+    <!--<div class="swiper-pagination"></div>-->
+
+    <!--&lt;!&ndash; 如果需要导航按钮 &ndash;&gt;-->
+    <!--<div class="swiper-button-prev"></div>-->
+    <!--<div class="swiper-button-next"></div>-->
+  <!--</div>-->
+
+  <div *ngFor="let data of contactsView" (click)="goToSDDetail(data)" class="system-libraries">
+      <div class="avatar">
+        {{data?.name | name2avatar}}
+      </div>
+      <div class="info">
+        <h3>{{data?.name}}</h3>
+        <p>{{data?.division}}</p>
+      </div>
+  </div>
+</div>
+<div class="js_dialog" id="hintDialog" style="display: none;">
+  <div class="weui-mask"></div>
+  <div class="weui-dialog weui-skin_android">
+    <div class="weui-loadmore">
+      <i class="weui-loading"></i>
+      <span class="weui-loadmore__tips">正在加载</span>
+    </div>
+  </div>
+</div>
